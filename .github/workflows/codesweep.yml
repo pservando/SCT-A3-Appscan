@@ -5,6 +5,9 @@ on:
 jobs:
     scan:
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -14,6 +17,3 @@ jobs:
               uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v2.1
         env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-permissions:
-    contents: read
-    pull-requests: write
